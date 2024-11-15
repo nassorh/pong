@@ -14,6 +14,8 @@
 		9A5DEF102CDCCD8D0096ADAB /* pongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF0F2CDCCD8D0096ADAB /* pongTests.swift */; };
 		9A5DEF1A2CDCCD8D0096ADAB /* pongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF192CDCCD8D0096ADAB /* pongUITests.swift */; };
 		9A5DEF1C2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF1B2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift */; };
+		9A5DEF292CDCCE210096ADAB /* PongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF282CDCCE210096ADAB /* PongModel.swift */; };
+		9A5DEF2A2CDCCE210096ADAB /* PongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF282CDCCE210096ADAB /* PongModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		9A5DEF152CDCCD8D0096ADAB /* pongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5DEF192CDCCD8D0096ADAB /* pongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pongUITests.swift; sourceTree = "<group>"; };
 		9A5DEF1B2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pongUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9A5DEF282CDCCE210096ADAB /* PongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 				9A5DEF002CDCCD8A0096ADAB /* ContentView.swift */,
 				9A5DEF022CDCCD8C0096ADAB /* Assets.xcassets */,
 				9A5DEF042CDCCD8C0096ADAB /* Preview Content */,
+				9A5DEF282CDCCE210096ADAB /* PongModel.swift */,
 			);
 			path = pong;
 			sourceTree = "<group>";
@@ -259,6 +263,7 @@
 			files = (
 				9A5DEF012CDCCD8A0096ADAB /* ContentView.swift in Sources */,
 				9A5DEEFF2CDCCD8A0096ADAB /* pongApp.swift in Sources */,
+				9A5DEF292CDCCE210096ADAB /* PongModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5DEF102CDCCD8D0096ADAB /* pongTests.swift in Sources */,
+				9A5DEF2A2CDCCE210096ADAB /* PongModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
