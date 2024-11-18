@@ -16,6 +16,7 @@
 		9A5DEF1C2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF1B2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift */; };
 		9A5DEF292CDCCE210096ADAB /* PongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF282CDCCE210096ADAB /* PongModel.swift */; };
 		9A5DEF2A2CDCCE210096ADAB /* PongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF282CDCCE210096ADAB /* PongModel.swift */; };
+		9A5DEF2C2CEA8AB60096ADAB /* PongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DEF2B2CEA8AB60096ADAB /* PongViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9A5DEF192CDCCD8D0096ADAB /* pongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pongUITests.swift; sourceTree = "<group>"; };
 		9A5DEF1B2CDCCD8D0096ADAB /* pongUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pongUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A5DEF282CDCCE210096ADAB /* PongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongModel.swift; sourceTree = "<group>"; };
+		9A5DEF2B2CEA8AB60096ADAB /* PongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				9A5DEF022CDCCD8C0096ADAB /* Assets.xcassets */,
 				9A5DEF042CDCCD8C0096ADAB /* Preview Content */,
 				9A5DEF282CDCCE210096ADAB /* PongModel.swift */,
+				9A5DEF2B2CEA8AB60096ADAB /* PongViewModel.swift */,
 			);
 			path = pong;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				9A5DEF012CDCCD8A0096ADAB /* ContentView.swift in Sources */,
 				9A5DEEFF2CDCCD8A0096ADAB /* pongApp.swift in Sources */,
+				9A5DEF2C2CEA8AB60096ADAB /* PongViewModel.swift in Sources */,
 				9A5DEF292CDCCE210096ADAB /* PongModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

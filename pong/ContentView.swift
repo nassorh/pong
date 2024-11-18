@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var model = PongModel(screenBounds: UIScreen.main.bounds)
+    @ObservedObject var viewModel: PongViewModel
     let timer = Timer.publish(every: 1/50, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: model.leftPaddle.size.width, height: model.leftPaddle.size.height)
-                .position(model.leftPaddle.position)
+                .frame(width: viewModel.leftPaddle.size.width, height: viewModel.leftPaddle.size.height)
+                .position(viewModel.leftPaddle.position)
                 .foregroundColor(.blue)
                 .gesture(
                     DragGesture()
                         .onChanged{ value in
-                            model.updateLeftPaddlePosition(xPosition: value.location.x)
+                            viewModel.updateLeftPaddlePosition(xPosition: value.location.x)
                             
                         }
                 )
             
             Circle()
-                .frame(width: model.ball.size.width, height: model.ball.size.height)
-                .position(model.ball.position)
+                .frame(width: viewModel.ball.size.width, height: viewModel.ball.size.height)
+                .position(viewModel.ball.position)
                 .foregroundColor(.white)
             
             Rectangle()
-                .frame(width: model.rightPaddle.size.width, height: model.rightPaddle.size.height)
-                .position(model.rightPaddle.position)
+                .frame(width: viewModel.rightPaddle.size.width, height: viewModel.rightPaddle.size.height)
+                .position(viewModel.rightPaddle.position)
                 .foregroundColor(.red)
                 .gesture(
                     DragGesture()
                         .onChanged{ value in
-                            model.updateRightPaddlePosition(xPosition: value.location.x)
+                            viewModel.updateRightPaddlePosition(xPosition: value.location.x)
                             
                         }
                 )
@@ -45,11 +45,11 @@ struct ContentView: View {
         .background(Color.black)
         .ignoresSafeArea()
         .onReceive(timer){ _ in
-            model.updateBallPosition()
+            viewModel.updateBallPosition()
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: PongViewModel(screenBounds: UIScreen.main.bounds))
 }

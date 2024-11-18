@@ -11,7 +11,9 @@ import SwiftUI
 struct pongApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let screenBounds = UIScreen.main.bounds
+            let viewModel = PongViewModel(screenBounds: screenBounds)
+            ContentView(viewModel: viewModel)
         }
     }
 }
