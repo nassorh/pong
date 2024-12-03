@@ -48,12 +48,6 @@ struct Ball {
         position.y += velocity.dy
     }
 
-//    func isOutOfVerticalBounds(screenBounds: CGRect) -> Bool {
-//        let verticalBoundaryTolerance = size.height / 2
-//        return position.y <= screenBounds.minY + verticalBoundaryTolerance || position.y >= screenBounds.maxY - verticalBoundaryTolerance
-//    }
-    
-
     func checkVerticalBounds(screenBounds: CGRect) -> VerticalBound {
         let verticalBoundaryTolerance = size.height / 2
         

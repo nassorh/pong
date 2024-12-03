@@ -51,10 +51,6 @@ class PongViewModel: ObservableObject {
             ball.velocity.dx *= -1
         }
 
-//        if ball.isOutOfVerticalBounds(screenBounds: screenBounds) {
-//            resetGame()
-//        }
-//        
         let verticalBoundStatus = ball.checkVerticalBounds(screenBounds: screenBounds)
         switch verticalBoundStatus {
         case .top:
