@@ -10,17 +10,19 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: PongViewModel
     let timer = Timer.publish(every: 1/50, on: .main, in: .common).autoconnect()
+    let topPlayerColor = Color.red
+    let bottomPlayerColor = Color.blue
     
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: viewModel.leftPaddle.size.width, height: viewModel.leftPaddle.size.height)
-                .position(viewModel.leftPaddle.position)
-                .foregroundColor(.blue)
+                .frame(width: viewModel.topPaddle.size.width, height: viewModel.topPaddle.size.height)
+                .position(viewModel.topPaddle.position)
+                .foregroundColor(topPlayerColor)
                 .gesture(
                     DragGesture()
                         .onChanged{ value in
-                            viewModel.updateLeftPaddlePosition(xPosition: value.location.x)
+                            viewModel.updateTopPaddlePosition(xPosition: value.location.x)
                             
                         }
                 )
@@ -31,16 +33,26 @@ struct ContentView: View {
                 .foregroundColor(.white)
             
             Rectangle()
-                .frame(width: viewModel.rightPaddle.size.width, height: viewModel.rightPaddle.size.height)
-                .position(viewModel.rightPaddle.position)
-                .foregroundColor(.red)
+                .frame(width: viewModel.bottomPaddle.size.width, height: viewModel.bottomPaddle.size.height)
+                .position(viewModel.bottomPaddle.position)
+                .foregroundColor(bottomPlayerColor)
                 .gesture(
                     DragGesture()
                         .onChanged{ value in
-                            viewModel.updateRightPaddlePosition(xPosition: value.location.x)
+                            viewModel.updateBottomPaddlePosition(xPosition: value.location.x)
                             
                         }
                 )
+            
+            Text("\(viewModel.topPlayerScore)")
+                .font(.largeTitle)
+                .foregroundColor(topPlayerColor)
+                .position(x: 50, y: 50)
+
+            Text("\(viewModel.bottomPlayerScore)")
+                .font(.largeTitle)
+                .foregroundColor(bottomPlayerColor)
+                .position(x: UIScreen.main.bounds.width - 50, y: 50)
         }
         .background(Color.black)
         .ignoresSafeArea()

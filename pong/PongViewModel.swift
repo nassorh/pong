@@ -8,27 +8,29 @@
 import SwiftUI
 
 class PongViewModel: ObservableObject {
-    @Published var leftPaddle: Paddle
-    @Published var rightPaddle: Paddle
+    @Published var bottomPaddle: Paddle
+    @Published var topPaddle: Paddle
     @Published var ball: Ball
+    @Published var bottomPlayerScore: Int = 0
+    @Published var topPlayerScore: Int = 0
     private let screenBounds: CGRect
 
     init(screenBounds: CGRect) {
         let paddleMargin = CGFloat(75)
 
-        self.leftPaddle = Paddle(position: CGPoint(x: screenBounds.midX, y: screenBounds.minY + paddleMargin))
-        self.rightPaddle = Paddle(position: CGPoint(x: screenBounds.midX, y: screenBounds.maxY - paddleMargin))
+        self.bottomPaddle = Paddle(position: CGPoint(x: screenBounds.midX, y: screenBounds.minY + paddleMargin))
+        self.topPaddle = Paddle(position: CGPoint(x: screenBounds.midX, y: screenBounds.maxY - paddleMargin))
         self.ball = Ball(position: CGPoint(x: screenBounds.midX, y: screenBounds.midY))
         self.screenBounds = screenBounds
     }
 
-    func updateLeftPaddlePosition(xPosition: CGFloat) {
-        leftPaddle.updatePaddlePosition(bounds: screenBounds, xPosition: xPosition)
+    func updateBottomPaddlePosition(xPosition: CGFloat) {
+        bottomPaddle.updatePaddlePosition(bounds: screenBounds, xPosition: xPosition)
         objectWillChange.send()
     }
 
-    func updateRightPaddlePosition(xPosition: CGFloat) {
-        rightPaddle.updatePaddlePosition(bounds: screenBounds, xPosition: xPosition)
+    func updateTopPaddlePosition(xPosition: CGFloat) {
+        topPaddle.updatePaddlePosition(bounds: screenBounds, xPosition: xPosition)
         objectWillChange.send()
     }
 
@@ -39,18 +41,26 @@ class PongViewModel: ObservableObject {
     }
 
     private func checkForCollisions() {
-        if isCollidingWithPaddle(ball: ball, paddle: leftPaddle) {
-            handlePaddleCollision(paddle: leftPaddle)
-        } else if isCollidingWithPaddle(ball: ball, paddle: rightPaddle) {
-            handlePaddleCollision(paddle: rightPaddle)
+        if isCollidingWithPaddle(ball: ball, paddle: bottomPaddle) {
+            handlePaddleCollision(paddle: bottomPaddle)
+        } else if isCollidingWithPaddle(ball: ball, paddle: topPaddle) {
+            handlePaddleCollision(paddle: topPaddle)
         }
 
         if ball.isOutOfHorizontalBounds(screenBounds: screenBounds) {
             ball.velocity.dx *= -1
         }
 
-        if ball.isOutOfVerticalBounds(screenBounds: screenBounds) {
+        let verticalBoundStatus = ball.checkVerticalBounds(screenBounds: screenBounds)
+        switch verticalBoundStatus {
+        case .top:
+            bottomPlayerScore += 1
             resetGame()
+        case .bottom:
+            topPlayerScore += 1
+            resetGame() 
+        case .none:
+            break
         }
     }
 
@@ -79,8 +89,8 @@ class PongViewModel: ObservableObject {
     }
 
     private func resetGame() {
-        leftPaddle.reset()
-        rightPaddle.reset()
+        bottomPaddle.reset()
+        topPaddle.reset()
         ball.reset()
     }
 }
